@@ -42,6 +42,8 @@ RocketChat.API.v1.addRoute('me', { authRequired: true }, {
 			me.settings = { preferences: {} };
 		}
 
+		me.avatarUrl = RocketChat.getURL(`/avatar/${ me.username }`, { cdn: false, full: true });
+
 		return RocketChat.API.v1.success(me);
 	}
 });
