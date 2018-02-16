@@ -143,7 +143,6 @@ Some configuration defaults have also been changed to be fit for purpose:
 
 - Force SSL : true
 - Allow Users to Delete Own Account : true
-- Resize Avatars : false (uses only URL for Blockstack asset)
 - Require Name for Signup : false
 - Internal Hubot > Username : block.bot
 
