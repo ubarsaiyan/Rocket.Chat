@@ -7,6 +7,7 @@ accounts-oauth@1.1.15
 accounts-password@1.5.1
 accounts-twitter@1.4.1
 aldeed:simple-schema@1.5.4
+aldeed:template-extension@4.1.0
 allow-deny@1.1.0
 autoupdate@1.4.0
 babel-compiler@7.0.8
@@ -16,6 +17,7 @@ binary-heap@1.0.10
 blaze@2.3.2
 blaze-html-templates@1.1.2
 blaze-tools@1.0.10
+blockparty:theme@0.0.0
 boilerplate-generator@1.4.0
 caching-compiler@1.1.11
 caching-html-compiler@1.1.2

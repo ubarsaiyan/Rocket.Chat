@@ -190,3 +190,8 @@ rocketchat:version-check
 
 rocketchat:search
 chatpal:search
+rocketchat:blockstack
+aldeed:template-extension
+meteorhacks:picker
+blockparty:theme
+jparker:crypto-md5
