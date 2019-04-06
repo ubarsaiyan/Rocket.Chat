@@ -1,0 +1,87 @@
+{
+  "openapi": "3.0.0",
+  "x-api-id": "rc",
+  "info": {
+    "version": "1.0.2",
+    "title": "RC",
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://rocket.chat.utkarshbarsaiyan.com/api/v1"
+    }
+  ],
+  "paths": {
+    "/users.create": {
+      "post": {
+        "description": "Creates a new user",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "It works!"
+          },
+          "403": {
+            "description": "You do not have necessary permissions for the resource"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": [
+                  "email",
+                  "name",
+                  "password",
+                  "username"
+                ],
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "description": "Email"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "Name"
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Password"
+                  },
+                  "username": {
+                    "type": "string",
+                    "description": "Username"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Auth-Token"
+      },
+      "ApiUserAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-User-Id"
+      }
+    }
+  },
+  "security": [
+    {
+      "ApiKeyAuth": []
+    },
+    {
+      "ApiUserAuth": []
+    }
+  ]
+}

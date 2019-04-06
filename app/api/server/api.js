@@ -11,6 +11,7 @@ import { RateLimiter } from 'meteor/rate-limit';
 import { hasAllPermission } from '../../authorization';
 import _ from 'underscore';
 
+const swagger = require('../../../swagger-generated.json');
 const logger = new Logger('API', {});
 const rateLimiterDictionary = {};
 const defaultRateLimiterOptions = {
@@ -554,4 +555,10 @@ settings.get('API_Enable_Rate_Limiter_Limit_Time_Default', (key, value) => {
 settings.get('API_Enable_Rate_Limiter_Limit_Calls_Default', (key, value) => {
 	defaultRateLimiterOptions.numRequestsAllowed = value;
 	API.v1.reloadRoutesToRefreshRateLimiter();
+});
+
+API.v1.addRoute('swagger.json', { authRequired: false }, {
+	get() {
+		return API.v1.success(swagger);
+	},
 });

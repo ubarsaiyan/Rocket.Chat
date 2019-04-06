@@ -1,0 +1,24 @@
+openapi: "3.0.0"
+x-api-id: "rc"
+info: 
+  version: "1.0.2"
+  title: "RC"
+  license: 
+    name: "MIT"
+servers: 
+  - 
+    url: "http://rocket.chat.utkarshbarsaiyan.com/api/v1"
+paths: {}
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-Auth-Token
+    ApiUserAuth:
+      type: apiKey
+      in: header
+      name: X-User-Id 
+security:
+  - ApiKeyAuth: []
+  - ApiUserAuth: []

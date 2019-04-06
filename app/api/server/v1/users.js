@@ -17,6 +17,20 @@ import { API } from '../api';
 import _ from 'underscore';
 import Busboy from 'busboy';
 
+/*
+ * @api [post] /users.create
+ * description: "Creates a new user"
+ * parameters:
+ *   - (body) email* {String} Email
+ *   - (body) name* {String} Name
+ *   - (body) password* {String} Password
+ *   - (body) username* {String} Username
+ * responses:
+ *   200:
+ *     description: It works!
+ *   403:
+ *     description: 'You do not have necessary permissions for the resource'
+ */
 API.v1.addRoute('users.create', { authRequired: true }, {
 	post() {
 		check(this.bodyParams, {
