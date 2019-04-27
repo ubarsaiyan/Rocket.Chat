@@ -29,7 +29,7 @@ import Busboy from 'busboy';
  *   200:
  *     description: It works!
  *   403:
- *     description: 'You do not have necessary permissions for the resource'
+ *     description: You do not have necessary permissions for the resource
  */
 API.v1.addRoute('users.create', { authRequired: true }, {
 	post() {
@@ -140,6 +140,17 @@ API.v1.addRoute('users.setActiveStatus', { authRequired: true }, {
 	},
 });
 
+/*
+ * @api [get] /users.getPresence
+ * description: "Gets the online presence of a user"
+ * parameters:
+ *   - (query) username {String} The id or username of the user. If not provided, the auth user is updated.
+ * responses:
+ *   200:
+ *     description: It works!
+ *   403:
+ *     description: You do not have necessary permissions for the resource
+ */
 API.v1.addRoute('users.getPresence', { authRequired: true }, {
 	get() {
 		if (this.isUserFromParams()) {

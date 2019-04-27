@@ -347,6 +347,18 @@ class APIClass extends Restivus {
 
 		const self = this;
 
+		/*
+		* @api [post] /login
+		* description: "Login"
+		* parameters:
+		*   - (body) user {String} Your username or email.
+		*   - (body) password {String} Your password.
+		* responses:
+		*   200:
+		*     description: It works!
+		*   403:
+		*     description: You do not have necessary permissions for the resource
+		*/
 		this.addRoute('login', { authRequired: false }, {
 			post() {
 				const args = loginCompatibility(this.bodyParams);

@@ -3,17 +3,50 @@
   "x-api-id": "rc",
   "info": {
     "version": "1.0.2",
-    "title": "RC",
+    "title": "Rocket.Chat",
     "license": {
       "name": "MIT"
     }
   },
   "servers": [
     {
-      "url": "http://rocket.chat.utkarshbarsaiyan.com/api/v1"
+      "url": "https://rocket.chat.utkarshbarsaiyan.com/api/v1"
     }
   ],
   "paths": {
+    "/login": {
+      "post": {
+        "description": "Login",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "It works!"
+          },
+          "403": {
+            "description": "You do not have necessary permissions for the resource"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "string",
+                    "description": "Your username or email."
+                  },
+                  "password": {
+                    "type": "string",
+                    "description": "Your password."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/users.create": {
       "post": {
         "description": "Creates a new user",
@@ -57,6 +90,29 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/users.getPresence": {
+      "get": {
+        "description": "Gets the online presence of a user",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "username",
+            "description": "The id or username of the user. If not provided, the auth user is updated.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "It works!"
+          },
+          "403": {
+            "description": "You do not have necessary permissions for the resource"
           }
         }
       }

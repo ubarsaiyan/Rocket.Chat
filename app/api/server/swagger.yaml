@@ -1,13 +1,13 @@
 openapi: "3.0.0"
 x-api-id: "rc"
-info: 
+info:
   version: "1.0.2"
-  title: "RC"
+  title: "Rocket.Chat"
   license: 
     name: "MIT"
 servers: 
   - 
-    url: "http://rocket.chat.utkarshbarsaiyan.com/api/v1"
+    url: "https://rocket.chat.utkarshbarsaiyan.com/api/v1"
 paths: {}
 components:
   securitySchemes:
