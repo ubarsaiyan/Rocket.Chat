@@ -25,6 +25,24 @@ function sortTable(data, sortBy, sortDirection) {
 	return data;
 }
 
+async function showFilePreviews() {
+	const instance = Template.instance();
+	const { accountId } = instance.data;
+
+	const nodes = instance.state.get('unfilteredWebdavNodes').filter((node) => node.type === 'file');
+
+	if (!nodes || nodes.length === 0) { return; }
+
+	const promises = nodes.map((node) => {
+		console.log(node);
+		return call('getWebdavFilePreview', accountId, node.filename);
+	});
+	console.log(promises);
+	Promise.all(promises.map((p) => p.catch((e) => console.log(e))))
+		.then((results) => console.log(results))
+		.catch((e) => console.log(e));
+}
+
 async function showWebdavFileList() {
 	const instance = Template.instance();
 	const { accountId } = instance.data;
@@ -315,6 +333,7 @@ Template.webdavFilePicker.events({
 Template.webdavFilePicker.onRendered(async function() {
 	this.autorun(() => {
 		showWebdavFileList();
+		showFilePreviews();
 	});
 
 	this.autorun(() => {
